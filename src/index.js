@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import {render} from "@testing-library/react";
+import App from "./App";
 
-const FunctionComponents = () =>
-    React.createElement('h1', null, 'Заголовки');
 
-const Element = React.createElement('p', null, 'Paragraph');
+const Header = ({ text }) => <h1 id='hi'>{text}</h1>
 
-class ClassComponents extends Component{
+const Element = <p>Параграф</p>
+
+class Main extends React.Component {
     render() {
-        return React.createElement('div', {className: 'main'}, React.createElement(FunctionComponents), Element)
+        return (
+            <div className='main'>
+                <Header text={'Текст'} />
+                {Element}
+            </div>
+        )
     }
 }
 
 ReactDOM.render(
   <React.StrictMode>
-    <ClassComponents />
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 );
