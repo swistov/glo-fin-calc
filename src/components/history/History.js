@@ -2,7 +2,7 @@ import React from "react";
 import HistoryItem from "./HistoryItem";
 
 
-const History = ({ transactions }) => (
+const History = ({ resultExpenses, transactions, delTransaction }) => (
     <section className="history">
         <h3>История расходов</h3>
         <ul className="history__list">
@@ -10,6 +10,7 @@ const History = ({ transactions }) => (
                 <HistoryItem
                     key={item.id}
                     transaction={item}
+                    delTransaction={delTransaction}
                 />)}
         </ul>
     </section>
